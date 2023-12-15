@@ -1,11 +1,15 @@
 "use client"
 import React, { FormEvent, useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { setUser } from '@/redux/features/user-slice';
+import { useDispatch } from 'react-redux';
 
 interface HeroProps {}
 
 const Hero: React.FC<HeroProps> = () => {
   const router = useRouter();
+  const dispatch = useDispatch();
+
   const [formData, setFormData] = useState({
     username: '',
     email: '',
@@ -15,9 +19,15 @@ const Hero: React.FC<HeroProps> = () => {
 
   const handleSubmit = (event: FormEvent) => {
     event.preventDefault();
-    // Add your form submission logic here
+
+   try{
+    dispatch(setUser(formData));
     console.log('Form submitted:', formData);
     router.push('/dashboard');
+   }catch(error){
+    console.log(error)
+   }
+    
   };
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {

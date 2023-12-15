@@ -1,8 +1,10 @@
 import React from 'react';
+import Link from 'next/link'
 
 const Header = () => {
   return (
-    <div className="flex items-center justify-center min-h-screen">
+   <Link href="/welcome">
+     <div className="flex items-center justify-center min-h-screen">
       <div className="max-w-3xl p-4 mx-auto bg-white rounded-lg shadow-2xl ">
         <div className="flex items-center justify-end">
           {/* Move the X icon to the top right */}
@@ -25,7 +27,7 @@ const Header = () => {
         </div>
 
         <div className="mt-2">
-          <h1 className="text-2xl font-bold text-black hover:text-gray-600 dark:hover:text-gray-200 hover:underline">
+          <h1 className="text-2xl font-bold text-black  hover:underline">
             Did you Know?
           </h1>
           {/* Replace "Design" with your content */}
@@ -43,6 +45,7 @@ const Header = () => {
         </div>
       </div>
     </div>
+   </Link>
   );
 };
 

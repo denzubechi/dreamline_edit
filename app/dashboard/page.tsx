@@ -1,6 +1,8 @@
 "use client"
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../redux/store';
 import Image from 'next/image';
 import icon from '../../media/b2974ac5-a6c9-465b-acae-a3eeadb66700.jpg'
 
@@ -8,10 +10,13 @@ interface OnboardingProps {
   username: string;
 }
 
-const Onboarding: React.FC<OnboardingProps> = ({ username }) => {
+const Onboarding: React.FC<OnboardingProps> = () => {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
 
+  const user = useSelector((state: RootState) => state.user);
+  const username = user.username;
+  console.log(username)
   const handleHomepageClick = () => {
     // Add logic for redirection or any other action
     router.push('/');
@@ -21,7 +26,7 @@ const Onboarding: React.FC<OnboardingProps> = ({ username }) => {
     <>
       <div className="container flex mt-12 lg:mt-16 flex-col items-center justify-center  mx-auto">
         <h1 className="text-3xl font-semibold text-center mb-4">
-          Congratulations Sarah , you're one step closer to your dream.
+          Congratulations {username}, you're one step closer to your dream.
         </h1>
 
         {/* Image */}
