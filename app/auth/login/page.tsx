@@ -109,7 +109,7 @@ export default function Login() {
                   Log in
                 </h3>
                 <p className="">
-                  Don't have an account?{' '}
+                  Don&apos;t have an account?{' '}
                   <Link href="/signup">
                     <div className="font-medium text-indigo-600 hover:text-indigo-500">
                       Sign up

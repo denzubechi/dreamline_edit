@@ -4,7 +4,7 @@ import { useRouter } from 'next/navigation';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../redux/store';
 import Image from 'next/image';
-import icon from '../../media/b2974ac5-a6c9-465b-acae-a3eeadb66700.jpg'
+import icon from '../../media/demo-removebg-preview.png'
 
 interface OnboardingProps {
   username: string;
@@ -26,7 +26,7 @@ const Onboarding: React.FC<OnboardingProps> = () => {
     <>
       <div className="container flex mt-12 lg:mt-16 flex-col items-center justify-center  mx-auto">
         <h1 className="text-3xl font-semibold text-center mb-4">
-          Congratulations {username}, you're one step closer to your dream.
+          Congratulations {username}, you&apos;re one step closer to your dream.
         </h1>
 
         {/* Image */}
