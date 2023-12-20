@@ -1,5 +1,6 @@
 "use client"
 import React, { FormEvent, useState, useEffect } from 'react';
+import { useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import { setUser } from '@/redux/features/user-slice';
 import { useDispatch } from 'react-redux';
@@ -17,8 +18,7 @@ interface HeroProps {}
 const Hero: React.FC<HeroProps> = () => {
   const router = useRouter();
   const dispatch = useDispatch();
-  const [scriptLoaded, setScriptLoaded] = useState(false);
-  const [formRendered, setFormRendered] = useState(false); // New state variable
+  const scriptLoadedRef = useRef(false);
 
   const [formData, setFormData] = useState<FormData>({
     username: '',
@@ -49,7 +49,7 @@ const Hero: React.FC<HeroProps> = () => {
   useEffect(() => {
     console.log('useEffect is running');
 
-    if (!scriptLoaded && !formRendered) {
+    if (!scriptLoadedRef.current) {
       const script = document.createElement('script');
       script.charset = 'utf-8';
       script.type = 'text/javascript';
@@ -67,17 +67,18 @@ const Hero: React.FC<HeroProps> = () => {
             formId: 'e7e12fdc-5c79-4381-ae4c-64e9585704e2',
           });
         }
-        setScriptLoaded(true);
-        setFormRendered(true); // Update the state to indicate that the form has been rendered
+        scriptLoadedRef.current = true;
       };
 
       return () => {
         // Cleanup: remove the script from the head when the component is unmounted
-        document.head.removeChild(script);
-        console.log('cleanup function called');
+        if (script.parentNode) {
+          script.parentNode.removeChild(script);
+          console.log('cleanup function called');
+        }
       };
     }
-  }, [scriptLoaded, formRendered]); // Run the effect only when scriptLoaded or formRendered changes
+  }, []); // Run the effect only once on mount
 
   return (
     <>

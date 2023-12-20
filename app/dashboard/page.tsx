@@ -6,11 +6,9 @@ import { RootState } from '../../redux/store';
 import Image from 'next/image';
 import icon from '../../media/demo-removebg-preview.png'
 
-interface OnboardingProps {
-  username: string;
-}
 
-const Onboarding: React.FC<OnboardingProps> = () => {
+
+const Onboarding= () => {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
 
