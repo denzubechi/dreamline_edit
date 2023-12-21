@@ -32,11 +32,10 @@ const Header = () => {
           </h1>
           {/* Replace "Design" with your content */}
           <p className="mt-2 text-black dark:text-gray-800">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempora expedita dicta totam
-            aspernatur doloremque. Excepturi iste iusto eos enim reprehenderit nisi, accusamus
-            delectus nihil quis facere in modi ratione libero! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempora expedita dicta totam
-            aspernatur doloremque. Excepturi iste iusto eos enim reprehenderit nisi, accusamus
-            delectus nihil quis facere in modi ratione libero!
+            In 2022, 17 federal agencies reported $247 billion in estimated improper payments, averaging $20.5 billion of waste per month or about 
+            $683 million per day, according to the Open the Books report. Meaning a significant amount of all incentives in the U.S. have either gone unused, been misappropriated
+             
+             or aggressive lack impact due to poor awareness, inaccuracy and inefficientcy in deployment.
           </p>
         </div>
 
